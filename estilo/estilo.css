@@ -1,0 +1,107 @@
+/* 
+    Created on : 29/10/2018, 09:40:49
+    Author     : diego.santos
+*/
+
+/* formatação do menu */
+
+nav#menu {
+    display: block;
+    font-family: 'IBM Plex Serif', serif;
+    margin-bottom: 100%;
+}
+
+#imgMenu{
+    /*margin-bottom: 20px;*/
+}
+
+nav#menu ul {
+    list-style: none;
+    text-transform: uppercase;
+    position: absolute;
+    top: -30px;
+    left:-40px;
+    font-weight: lighter;
+}
+
+nav#menu li {
+    /*display: inline-block;*/
+    font-size: 20px;
+    margin: 4px;
+}
+/* formataçã da Imagem */
+img#icone {
+    position: relative;
+    left: 0;
+    top: 20px;
+    width: 150px;
+}
+
+/*Formatação div */
+div#menu {
+    float:left;
+    width: 20%;
+}
+
+/*Formatação h1 e h4*/
+h1{
+    text-align: center;
+    margin-bottom: 98px;
+}
+h4{
+    text-align: center;
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+h3{
+    margin-bottom: 0px;
+    margin-top: 8px;
+}
+hr{
+    width: 49.8%;
+    margin: 0px;
+}
+
+.t1Tabela{
+    width: 50%;
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    text-align: center;
+}
+.t1Tabela thead tr:first-child{
+    background-color: lightgray;
+}
+.t1Tabela tr:nth-child(odd){
+    background-color: gray;
+}
+th{
+    border-bottom: 2px black solid;
+    border-top: 2px black solid;
+}
+.t2Tabela{
+    margin-top: 10px;
+    border-top: 2px lightgray solid;
+    border-bottom: 2px lightgray solid;
+    width: 50%;
+}
+.t2Tabela td:first-child{
+    text-align: right;
+}
+/*Formatação Input*/
+
+input.iCodigo{
+    width: 100px;    
+}
+input.iNome{
+    width: 400px;
+}
+input.iVCredito{
+    width: 100px; 
+}
+input.iMail{
+    width: 400px; 
+}
+input.iValor{
+    width: 100px; 
+}

@@ -1,0 +1,7 @@
+db/
+nbproject/
+.idea/
+.vscode/
+vendor/
+node_modules/
+.env
