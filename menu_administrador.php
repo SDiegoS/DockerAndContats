@@ -13,6 +13,5 @@ echo'
     </div>
 </nav>
 </div>
-
 '
 ?>

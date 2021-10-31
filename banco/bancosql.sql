@@ -7,9 +7,12 @@
  CONSTRAINT pk_usuario PRIMARY KEY (usucodigo)
 );
 
-CREATE TABLE IF NOT EXISTS tbcliente (
- clicodigo serial NOT NULL,	
+CREATE TABLE IF NOT EXISTS tbcontato (
+ concodigo serial NOT NULL,
+ conemail varchar(50),
+ contelefone varchar(50),
+ contipo integer not null,
  usucodigo integer NOT NULL,
- CONSTRAINT pk_cliente PRIMARY KEY (clicodigo),
+ CONSTRAINT pk_contato PRIMARY KEY (concodigo),
  CONSTRAINT fk_usuario FOREIGN KEY (usucodigo) REFERENCES tbusuarios (usucodigo)
 );

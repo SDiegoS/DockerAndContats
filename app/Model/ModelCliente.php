@@ -11,38 +11,72 @@ class ModelCliente{
     private $iTipoUsuario;
     private $iCPFCNPJ;
     private $iSenha;
-    
-    function getNome() {
+
+    /**
+     * @return mixed
+     */
+    public function getNome()
+    {
         return $this->nome;
     }
 
-    function getITipoUsuario() {
-        return $this->iTipoUsuario;
-    }
-
-    function getICPFCNPJ() {
-        return $this->iCPFCNPJ;
-    }
-
-    function getISenha() {
-        return $this->iSenha;
-    }
-
-    function setNome($nome) {
+    /**
+     * @param mixed $nome
+     */
+    public function setNome($nome): void
+    {
         $this->nome = $nome;
     }
 
-    function setITipoUsuario($iTipoUsuario) {
+    /**
+     * @return mixed
+     */
+    public function getITipoUsuario()
+    {
+        return $this->iTipoUsuario;
+    }
+
+    /**
+     * @param mixed $iTipoUsuario
+     */
+    public function setITipoUsuario($iTipoUsuario): void
+    {
         $this->iTipoUsuario = $iTipoUsuario;
     }
 
-    function setICPFCNPJ($iCPFCNPJ) {
+    /**
+     * @return mixed
+     */
+    public function getICPFCNPJ()
+    {
+        return $this->iCPFCNPJ;
+    }
+
+    /**
+     * @param mixed $iCPFCNPJ
+     */
+    public function setICPFCNPJ($iCPFCNPJ): void
+    {
         $this->iCPFCNPJ = $iCPFCNPJ;
     }
 
-    function setISenha($iSenha) {
+    /**
+     * @return mixed
+     */
+    public function getISenha()
+    {
+        return $this->iSenha;
+    }
+
+    /**
+     * @param mixed $iSenha
+     */
+    public function setISenha($iSenha): void
+    {
         $this->iSenha = $iSenha;
     }
+    
+
 
 
 

@@ -1,9 +1,7 @@
 <?php
 
 require_once './app/Model/ModelCliente.php';
-require_once './app/Model/ModelEndereco.php';
 require_once './app/Persistencia/PersistenciaCliente.php';
-require_once './app/View/ViewCliente.php';
 require_once './app/View/ViewCadastro.php';
 
 class ControllerCliente {
@@ -13,11 +11,6 @@ class ControllerCliente {
      * @var ModelCliente 
      */
     protected $ModelCliente;
-
-    /**
-     * @var ViewCliente 
-     */
-    protected $ViewCliente;
 
     /**
      * @var ViewCadastro 

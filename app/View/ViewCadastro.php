@@ -15,7 +15,9 @@ class ViewCadastro
 
     public function montaFormulario()
     {
-        echo '<form  method="POST" action="index.php?pagina=cadastrar">
+        echo '
+        <body>
+            <form  method="POST" action="index.php?pagina=cadastrar">
                 <h1 style="margin-bottom: 10px">Cadastrar-se</h1>
                 <div>
                 <table>
@@ -46,7 +48,8 @@ class ViewCadastro
                     <button type="reset">Excluir</button>
                 </div>
             </form><br><hr><hr><br>
-            <a href="index.php"><input type="submit" value="Voltar" /></a>';
+            <a href="index.php"><input type="submit" value="Voltar" /></a>
+        </body>';
     }
 }
 

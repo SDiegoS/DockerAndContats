@@ -11,55 +11,86 @@ class ModelLogin {
     private $sEntrar;
     private $sSenha;
     private $sConteudo;
-    private $sNomeCookie;
     private $aUsuarioSessao;
 
-    function getAUsuarioSessao() {
-        return $this->aUsuarioSessao;
-    }
-
-    function setAUsuarioSessao($aUsuarioSessao) {
-        $this->aUsuarioSessao = $aUsuarioSessao;
-    }
-
-    function getSUsername() {
+    /**
+     * @return mixed
+     */
+    public function getSUsername()
+    {
         return $this->sUsername;
     }
 
-    function getSEntrar() {
-        return $this->sEntrar;
-    }
-
-    function getSSenha() {
-        return $this->sSenha;
-    }
-
-    function getSConteudo() {
-        return $this->sConteudo;
-    }
-
-    function getSNomeCookie() {
-        return $this->sNomeCookie;
-    }
-
-    function setSUsername($sUsername) {
+    /**
+     * @param mixed $sUsername
+     */
+    public function setSUsername($sUsername): void
+    {
         $this->sUsername = $sUsername;
     }
 
-    function setSEntrar($sEntrar) {
+    /**
+     * @return mixed
+     */
+    public function getSEntrar()
+    {
+        return $this->sEntrar;
+    }
+
+    /**
+     * @param mixed $sEntrar
+     */
+    public function setSEntrar($sEntrar): void
+    {
         $this->sEntrar = $sEntrar;
     }
 
-    function setSSenha($sSenha) {
+    /**
+     * @return mixed
+     */
+    public function getSSenha()
+    {
+        return $this->sSenha;
+    }
+
+    /**
+     * @param mixed $sSenha
+     */
+    public function setSSenha($sSenha): void
+    {
         $this->sSenha = $sSenha;
     }
 
-    function setSConteudo($sConteudo) {
+    /**
+     * @return mixed
+     */
+    public function getSConteudo()
+    {
+        return $this->sConteudo;
+    }
+
+    /**
+     * @param mixed $sConteudo
+     */
+    public function setSConteudo($sConteudo): void
+    {
         $this->sConteudo = $sConteudo;
     }
 
-    function setSNomeCookie($sNomeCookie) {
-        $this->sNomeCookie = $sNomeCookie;
+    /**
+     * @return mixed
+     */
+    public function getAUsuarioSessao()
+    {
+        return $this->aUsuarioSessao;
+    }
+
+    /**
+     * @param mixed $aUsuarioSessao
+     */
+    public function setAUsuarioSessao($aUsuarioSessao): void
+    {
+        $this->aUsuarioSessao = $aUsuarioSessao;
     }
 
 }

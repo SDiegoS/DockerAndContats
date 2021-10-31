@@ -3,11 +3,12 @@
 require_once './app/Persistencia/Persistencia.php';
 require_once './app/Model/ModelLogin.php';
 
-class PersistenciaLogar extends Persistencia {
+class PersistenciaLogar extends Persistencia
+{
 
     /**
      *
-     * @var Persistencia 
+     * @var Persistencia
      */
     protected $oConexao;
 
@@ -17,23 +18,28 @@ class PersistenciaLogar extends Persistencia {
      */
     protected $ModelLogin;
 
-    function getOConexao() {
+    function getOConexao()
+    {
         return $this->oConexao;
     }
 
-    function getModelLogin() {
+    function getModelLogin()
+    {
         return $this->ModelLogin;
     }
 
-    function setOConexao($oConexao) {
+    function setOConexao($oConexao)
+    {
         $this->oConexao = $oConexao;
     }
 
-    function setModelLogin($ModelLogin) {
+    function setModelLogin($ModelLogin)
+    {
         $this->ModelLogin = $ModelLogin;
     }
 
-    public function executa($sSQL) {
+    public function executa($sSQL)
+    {
         $this->conecta();
         $oResult = pg_query($this->getOConexao(), $sSQL);
 
@@ -42,13 +48,14 @@ class PersistenciaLogar extends Persistencia {
         return $oResult;
     }
 
-    function login() {
+    function login()
+    {
         /* consulta a tabela do banco username, senha e dados */
-        $verifica = ("SELECT * FROM tbusuarios WHERE usuemail = '" . $this->ModelLogin->getSUsername() . "' AND ususenha = '" . $this->ModelLogin->getSSenha() . "'");
+        $verifica = ("SELECT * FROM tbusuarios WHERE usunome = '" . $this->ModelLogin->getSUsername() . "' AND ususenha = '" . $this->ModelLogin->getSSenha() . "'");
         $QueryUsuario = $this->executa($verifica);
         $aRetorno = [];
-        
-        while ($oResultado = pg_fetch_array($QueryUsuario)){
+
+        while ($oResultado = pg_fetch_array($QueryUsuario)) {
             $aRetorno[] = $oResultado;
         }
         return $aRetorno;

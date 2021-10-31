@@ -17,5 +17,4 @@ class ControllerHome {
         new ViewHome();
     }
 
-//    Getter e Setter
 }

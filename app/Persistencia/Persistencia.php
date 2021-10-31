@@ -39,6 +39,16 @@ class Persistencia
         return $sConexao;
     }
 
+    public function executa($sSQL)
+    {
+        $this->conecta();
+        $oResult = pg_exec($this->getOConexao(), $sSQL);
+
+        $this->desconecta();
+
+        return $oResult;
+    }
+
 
     public function conecta()
     {
@@ -47,7 +57,7 @@ class Persistencia
 
     public function desconecta()
     {
-        return pg_close($this->oConexao);
+        return pg_close($this->getOConexao());
     }
 
 }

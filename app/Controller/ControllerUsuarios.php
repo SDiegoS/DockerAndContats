@@ -9,29 +9,32 @@ require_once './app/View/ViewUsuarios.php';
 require_once './app/Model/ModelUsuarios.php';
 require_once './app/Persistencia/PersistenciaUsuarios.php';
 
-class ControllerUsuarios {
+class ControllerUsuarios
+{
 
     /**
      *
-     * @var ModelCliente 
+     * @var ModelCliente
      */
     protected $ModelUsuarios;
 
     /**
-     * @var ViewUsuarios 
+     * @var ViewUsuarios
      */
     protected $ViewUsuarios;
 
     /**
-     * @var PersistenciaUsuarios 
+     * @var PersistenciaUsuarios
      */
     protected $PersistenciaUsuarios;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->processar();
     }
 
-    function processar() {
+    function processar()
+    {
         $this->PersistenciaUsuarios = new PersistenciaUsuarios();
         if (isset($_POST['alterar'])) {
             $usucodigo = $_POST['alterar'];
@@ -42,52 +45,33 @@ class ControllerUsuarios {
         } else if (isset($_POST['confirmaalterar']) && $_POST['confirmaalterar'] == 'confirmaalterar') {
             $usucodigo = $_POST['usucodigo'];
             $usunome = $_POST['usunome'];
-            $usudataNasc = $_POST['usudatanasc'];
             $usucpfcnpj = $_POST['usucpfcnpj'];
-            $usutelefone = $_POST['usutelefone'];
-            $usuemail = $_POST['usuemail'];
-            $endcodigo= $_POST['endcodigo'];
-            $endnumero= $_POST['endnumero'];
-            $endcidade= $_POST['endcidade'];
-            $endbairro= $_POST['endbairro'];
-            $endrua= $_POST['endrua'];
-            $endcomplemento= $_POST['endcomplemento'];
-             
+
             $oUsuarios = new ModelUsuarios();
             $oUsuarios->setCodigo($usucodigo);
             $oUsuarios->setNome($usunome);
-            $oUsuarios->setDataNasc($usudataNasc);
             $oUsuarios->setCpf($usucpfcnpj);
-            $oUsuarios->setTelefone($usutelefone);
-            $oUsuarios->setEmail($usuemail);
-            $oUsuarios->setEndcodigo($endcodigo);
-            $oUsuarios->setEndnumero($endnumero);
-            $oUsuarios->setEndcidade($endcidade);
-            $oUsuarios->setEndbairro($endbairro);
-            $oUsuarios->setEndrua($endrua);
-            $oUsuarios->setEndcomplemento($endcomplemento);
-            
+
             $this->PersistenciaUsuarios->setModelUsuario($oUsuarios);
             $this->PersistenciaUsuarios->altera();
-            header('location: index.php?pagina=clientes');
-        } else if(isset($_POST['excluir'])){
+            echo "<script  type='text/javascript'>window.location.href='index.php?pagina=clientes'</script>";
+//            header('location: http://localhost/index.php?pagina=clientes');
+        } else if (isset($_POST['excluir'])) {
             $usucodigo = $_POST['excluir'];
-            $endcodigo= $_POST['endcodigo'];
+            $endcodigo = $_POST['endcodigo'];
             $oUsuarios = new ModelUsuarios();
             $oUsuarios->setCodigo($usucodigo);
             $oUsuarios->setEndcodigo($endcodigo);
             $this->PersistenciaUsuarios->setModelUsuario($oUsuarios);
             $this->PersistenciaUsuarios->exclui();
-            header('location: index.php?pagina=clientes');
+            echo "<script  type='text/javascript'>window.location.href='index.php?pagina=clientes'</script>";
+//            header('location: http://localhost/index.php?pagina=clientes');
 
-        }        
-        else {
+        } else {
             $aUsuarios = $this->PersistenciaUsuarios->lista();
             $this->ViewUsuarios = new ViewUsuarios();
             $this->ViewUsuarios->setAUsuarios($aUsuarios);
             $this->ViewUsuarios->montaFormulario();
         }
     }
-
-    //Getter e Setter
 }

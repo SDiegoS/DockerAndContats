@@ -28,13 +28,14 @@ class ControllerLogin {
     }
 
     function criarCookie() {
-        setcookie($this->ModelLogin->getSNomeCookie(), $this->ModelLogin->getSConteudo(), time() + 3600);
+//        setcookie($this->ModelLogin->getSNomeCookie(), $this->ModelLogin->getSConteudo(), time() + 3600);
+        echo "<script type='text/javascript'>sessionStorage.setItem( 'background_php_color', '".$this->ModelLogin->getSConteudo()."')</script>";
     }
 
     function deslogar() {
         session_destroy();
         //redirecionar o usuario para a página de login
-        header("Location: index.php");
+        echo"<script  type='text/javascript'>window.location.href='index.php'</script>";
     }
 
     public function processa() {
@@ -54,7 +55,6 @@ class ControllerLogin {
             $this->ModelLogin->setSEntrar($entrar);
             $this->ModelLogin->setSSenha(md5($senha));
             $this->ModelLogin->setSConteudo($selectCor);
-            $this->ModelLogin->setSNomeCookie('background_php');
 
             $this->PersistenciaLogar = new PersistenciaLogar();
             $this->PersistenciaLogar->setModelLogin($this->ModelLogin);
@@ -67,7 +67,7 @@ class ControllerLogin {
                 $this->criarCookie();
             } else {
                 $QueryUsuario = $this->PersistenciaLogar->login();
-                /* verifica se usuario existe */
+                /* verifica se o usuario existe */
                 if ($QueryUsuario == FALSE) {
                     echo"<script type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='index.php';</script>";
                     die();
@@ -85,7 +85,7 @@ class ControllerLogin {
                 $this->ModelLogin->setSNomeCookie('usuarioSenha_php');
                 $this->criarCookie();
             }
-            header('location:index.php');
+            echo"<script  type='text/javascript'>window.location.href='index.php'</script>";
         }
         new ViewLogin();
     }
