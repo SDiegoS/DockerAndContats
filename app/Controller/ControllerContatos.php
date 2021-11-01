@@ -43,7 +43,7 @@ class ControllerContatos
 
             $this->ModelContatos = new ModelContatos();
             $this->ModelContatos->setSEmail($conemail);
-            $this->ModelContatos->setITelefone($contelefone);
+            $this->ModelContatos->setSTelefone($contelefone);
             $this->ModelContatos->setITipoContato($contipo);
             $this->ModelContatos->setICodigoUsuario($aUsuario[0]['usucodigo']);
 
@@ -59,7 +59,7 @@ class ControllerContatos
             $this->ModelContatos = new ModelContatos();
             $this->ModelContatos->setICodigo($concodigo);
             $this->ModelContatos->setSEmail($conemail);
-            $this->ModelContatos->setITelefone($contelefone);
+            $this->ModelContatos->setSTelefone($contelefone);
             $this->ModelContatos->setITipoContato($contipo);
 
             $this->PersistenciaContatos->setModelContato($this->ModelContatos);

@@ -44,12 +44,12 @@ class ViewLogin
                         <br>
                         <label>Escola um tema:</label>
                         <select name="selectCor">
+                            <option value="gray">Cinza</option>
                             <option value="white">Branco</option>
                             <option value="#567bff">Azul</option>
                             <option value="green">Verde</option>
                             <option value="yellow">Amarelo</option>
                             <option value="red">Vermelho</option>
-                            <option value="gray">Cinza</option>
                         </select>
                         <br>
                         <br>

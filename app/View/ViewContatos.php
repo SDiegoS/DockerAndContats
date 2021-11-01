@@ -37,17 +37,17 @@ class ViewContatos
                                 <td>Tipo Contato</td>
                                 <td>Ação</td>
                             </tr><?php
-                            foreach ($this->aContatos as $oContatos) {
+                            foreach ($this->aContatos as $num => $oContatos) {
                                 ?>
                                 <tr>
-                                <td><?php echo $oContatos->getICodigo(); ?> </td>
+                                <td><?php echo $num+1; ?> </td>
                                 <td><?php echo $oContatos->getSEmail(); ?> </td>
-                                <td><?php echo $oContatos->getITelefone(); ?> </td>
+                                <td><?php echo $oContatos->getSTelefone(); ?> </td>
                                 <td><?php
                                     if ($oContatos->getITipoContato() == 1) {
-                                        echo 'Administrador';
+                                        echo 'Email';
                                     } else if ($oContatos->getITipoContato() == 2) {
-                                        echo 'Cliente';
+                                        echo 'Telefone';
                                     }
                                     ?>
                                 </td>
@@ -87,12 +87,12 @@ class ViewContatos
                     <div>
                         <table style="border: 1px">
                             <?php
-                            foreach ($this->aContatos as $oContatos) {
+                            foreach ($this->aContatos as $num => $oContatos) {
                                 ?>
                                 <tr>
                                     <td>Código</td>
                                     <td><input type="hidden" value="<?php echo $oContatos->getICodigo(); ?>"
-                                               name="concodigo"> <?php echo $oContatos->getICodigo(); ?> </td>
+                                               name="concodigo"> <?php echo $num+1; ?> </td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
@@ -102,16 +102,17 @@ class ViewContatos
                                 </tr>
                                 <tr>
                                     <td>Telefone</td>
-                                    <td><input type="text" value="<?php echo $oContatos->getITelefone(); ?>"
+                                    <td><input type="text" value="<?php echo $oContatos->getSTelefone(); ?>"
                                                name="contelefone"></td>
                                 </tr>
                                 <tr>
                                     <td>Tipo Contato</td>
                                     <td>
-                                        <select name="contipo" value="<?php echo $oContatos->getITipoContato(); ?>">
+                                        <select name="contipo">
                                             <option value="1">Email</option>
                                             <option value="2">Telefone</option>
                                         </select>
+                                        <script type="text/javascript">$("[name='contipo'").val(<?php echo $oContatos->getITipoContato(); ?>)</script>
                                     </td>
                                 </tr>
                                 </tr>

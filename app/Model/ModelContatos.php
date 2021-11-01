@@ -4,7 +4,7 @@ class ModelContatos
 {
     private $iCodigo;
     private $sEmail;
-    private $iTelefone;
+    private $sTelefone;
     private $iTipoContato;
     private $iCodigoUsuario;
 
@@ -43,17 +43,17 @@ class ModelContatos
     /**
      * @return mixed
      */
-    public function getITelefone()
+    public function getSTelefone()
     {
-        return $this->iTelefone;
+        return $this->sTelefone;
     }
 
     /**
      * @param mixed $iTelefone
      */
-    public function setITelefone($iTelefone)
+    public function setSTelefone($sTelefone)
     {
-        $this->iTelefone = $iTelefone;
+        $this->sTelefone = $sTelefone;
     }
 
     /**

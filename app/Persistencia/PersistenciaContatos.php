@@ -31,7 +31,7 @@ class PersistenciaContatos extends Persistencia
             $oContato = new ModelContatos();
             $oContato->setICodigo($aRes['concodigo']);
             $oContato->setSEmail($aRes['conemail']);
-            $oContato->setITelefone($aRes['contelefone']);
+            $oContato->setSTelefone($aRes['contelefone']);
             $oContato->setITipoContato($aRes['contipo']);
 
             $aResultado[] = $oContato;
@@ -49,7 +49,7 @@ class PersistenciaContatos extends Persistencia
             $oContato = new ModelContatos();
             $oContato->setICodigo($aRes['concodigo']);
             $oContato->setSEmail($aRes['conemail']);
-            $oContato->setITelefone($aRes['contelefone']);
+            $oContato->setSTelefone($aRes['contelefone']);
             $oContato->setITipoContato($aRes['contipo']);
 
             $aResultado[] = $oContato;
@@ -60,8 +60,8 @@ class PersistenciaContatos extends Persistencia
     public function inserir()
     {
         $exesql = $this->executa("insert into tbcontato (conemail, contelefone, contipo, usucodigo) 
-                                values ('" . $this->ModelContatos->getSEmail() . "', "
-            . $this->ModelContatos->getITelefone() . ", "
+                                values ('" . $this->ModelContatos->getSEmail() . "', '"
+            . $this->ModelContatos->getSTelefone() . "', "
             . $this->ModelContatos->getITipoContato() . ", "
             . $this->ModelContatos->getICodigoUsuario() . ");");
 
@@ -76,7 +76,7 @@ class PersistenciaContatos extends Persistencia
     public function altera()
     {
         $this->executa("update tbcontato set conemail = '" . $this->ModelContatos->getSEmail() . "',"
-            . " contelefone = " . $this->ModelContatos->getITelefone() . ","
+            . " contelefone = '" . $this->ModelContatos->getSTelefone() . "',"
             . " contipo = " . $this->ModelContatos->getITipoContato()
             . " where concodigo = " . $this->ModelContatos->getICodigo());
     }
