@@ -4,41 +4,47 @@ require_once './app/View/ViewLogin.php';
 require_once './app/Model/ModelLogin.php';
 require_once './app/Persistencia/PersistenciaLogar.php';
 
-class ControllerLogin {
+class ControllerLogin
+{
 
     /**
      *
-     * @var ModelLogin 
+     * @var ModelLogin
      */
     protected $ModelLogin;
 
     /**
-     * @var PersistenciaLogar 
+     * @var PersistenciaLogar
      */
     protected $PersistenciaLogar;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->processa();
     }
 
-    public function armazenaSessao() {
+    public function armazenaSessao()
+    {
         $sSerializaUsuario = serialize($this->ModelLogin->getAUsuarioSessao());
         $_SESSION['usuario'] = $sSerializaUsuario;
-        
+
     }
 
-    function criarCookie() {
+    function criarCookie()
+    {
 //        setcookie($this->ModelLogin->getSNomeCookie(), $this->ModelLogin->getSConteudo(), time() + 3600);
-        echo "<script type='text/javascript'>sessionStorage.setItem( 'background_php_color', '".$this->ModelLogin->getSConteudo()."')</script>";
+        echo "<script type='text/javascript'>sessionStorage.setItem( 'background_php_color', '" . $this->ModelLogin->getSConteudo() . "')</script>";
     }
 
-    function deslogar() {
+    function deslogar()
+    {
         session_destroy();
         //redirecionar o usuario para a página de login
-        echo"<script  type='text/javascript'>window.location.href='index.php'</script>";
+        echo "<script  type='text/javascript'>window.location.href='index.php'</script>";
     }
 
-    public function processa() {
+    public function processa()
+    {
 
         if (isset($_GET['acao']) && $_GET['acao'] == 'sair') {
             $this->deslogar();
@@ -69,7 +75,7 @@ class ControllerLogin {
                 $QueryUsuario = $this->PersistenciaLogar->login();
                 /* verifica se o usuario existe */
                 if ($QueryUsuario == FALSE) {
-                    echo"<script type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='index.php';</script>";
+                    echo "<script type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='index.php';</script>";
                     die();
                 } else {
                     $this->ModelLogin->setAUsuarioSessao($QueryUsuario);
@@ -85,7 +91,7 @@ class ControllerLogin {
                 $this->ModelLogin->setSNomeCookie('usuarioSenha_php');
                 $this->criarCookie();
             }
-            echo"<script  type='text/javascript'>window.location.href='index.php'</script>";
+            echo "<script  type='text/javascript'>window.location.href='index.php'</script>";
         }
         new ViewLogin();
     }

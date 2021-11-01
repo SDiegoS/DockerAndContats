@@ -24,7 +24,6 @@ class ViewUsuarios
     {
         ?>
         <body>
-        <script type='text/javascript'>$('body').css('background-color', sessionStorage.getItem('background_php_color'));</script>
         <nav>
             <div>
                 <form method="POST" action="index.php?pagina=clientes">
@@ -73,7 +72,6 @@ class ViewUsuarios
     {
         ?>
         <body>
-        <script type='text/javascript'>$('body').css('background-color', sessionStorage.getItem('background_php_color'));</script>
         <nav>
             <div style="margin-left: 400px">
                 <form method="POST" action="index.php?pagina=clientes">

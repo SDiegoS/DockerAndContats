@@ -14,110 +14,86 @@ class ModelUsuarios {
     private $cpf;
     private $tipo;
 
+    //Getter e Setter
 
-    //Getter e Setter    
-    function getCodigo() {
+    /**
+     * @return mixed
+     */
+    public function getCodigo()
+    {
         return $this->codigo;
     }
 
-    function getNome() {
-        return $this->nome;
-    }
-
-    function getDataNasc() {
-        return $this->dataNasc;
-    }
-
-    function getCpf() {
-        return $this->cpf;
-    }
-
-    function getTelefone() {
-        return $this->telefone;
-    }
-
-    function getEmail() {
-        return $this->email;
-    }
-
-    function getTipo() {
-        return $this->tipo;
-    }
-
-    function getEndcodigo() {
-        return $this->endcodigo;
-    }
-
-    function getEndnumero() {
-        return $this->endnumero;
-    }
-
-    function getEndcidade() {
-        return $this->endcidade;
-    }
-
-    function getEndbairro() {
-        return $this->endbairro;
-    }
-
-    function getEndrua() {
-        return $this->endrua;
-    }
-
-    function getEndcomplemento() {
-        return $this->endcomplemento;
-    }
-
-    function setCodigo($codigo) {
+    /**
+     * @param mixed $codigo
+     */
+    public function setCodigo($codigo)
+    {
         $this->codigo = $codigo;
     }
 
-    function setNome($nome) {
+    /**
+     * @return mixed
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @param mixed $nome
+     */
+    public function setNome($nome)
+    {
         $this->nome = $nome;
     }
 
-    function setDataNasc($dataNasc) {
+    /**
+     * @return mixed
+     */
+    public function getDataNasc()
+    {
+        return $this->dataNasc;
+    }
+
+    /**
+     * @param mixed $dataNasc
+     */
+    public function setDataNasc($dataNasc)
+    {
         $this->dataNasc = $dataNasc;
     }
 
-    function setCpf($cpf) {
+    /**
+     * @return mixed
+     */
+    public function getCpf()
+    {
+        return $this->cpf;
+    }
+
+    /**
+     * @param mixed $cpf
+     */
+    public function setCpf($cpf)
+    {
         $this->cpf = $cpf;
     }
 
-    function setTelefone($telefone) {
-        $this->telefone = $telefone;
+    /**
+     * @return mixed
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
     }
 
-    function setEmail($email) {
-        $this->email = $email;
-    }
-
-    function setTipo($tipo) {
+    /**
+     * @param mixed $tipo
+     */
+    public function setTipo($tipo)
+    {
         $this->tipo = $tipo;
-    }
-
-    function setEndcodigo($endcodigo) {
-        $this->endcodigo = $endcodigo;
-    }
-
-    function setEndnumero($endnumero) {
-        $this->endnumero = $endnumero;
-    }
-
-    function setEndcidade($endcidade) {
-        $this->endcidade = $endcidade;
-    }
-
-    function setEndbairro($endbairro) {
-        $this->endbairro = $endbairro;
-    }
-
-    function setEndrua($endrua) {
-        $this->endrua = $endrua;
-    }
-
-    function setEndcomplemento($endcomplemento) {
-        $this->endcomplemento = $endcomplemento;
     }
 
 }

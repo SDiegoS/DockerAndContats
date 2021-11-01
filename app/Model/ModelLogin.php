@@ -24,7 +24,7 @@ class ModelLogin {
     /**
      * @param mixed $sUsername
      */
-    public function setSUsername($sUsername): void
+    public function setSUsername($sUsername)
     {
         $this->sUsername = $sUsername;
     }
@@ -40,7 +40,7 @@ class ModelLogin {
     /**
      * @param mixed $sEntrar
      */
-    public function setSEntrar($sEntrar): void
+    public function setSEntrar($sEntrar)
     {
         $this->sEntrar = $sEntrar;
     }
@@ -56,7 +56,7 @@ class ModelLogin {
     /**
      * @param mixed $sSenha
      */
-    public function setSSenha($sSenha): void
+    public function setSSenha($sSenha)
     {
         $this->sSenha = $sSenha;
     }
@@ -72,7 +72,7 @@ class ModelLogin {
     /**
      * @param mixed $sConteudo
      */
-    public function setSConteudo($sConteudo): void
+    public function setSConteudo($sConteudo)
     {
         $this->sConteudo = $sConteudo;
     }
@@ -88,7 +88,7 @@ class ModelLogin {
     /**
      * @param mixed $aUsuarioSessao
      */
-    public function setAUsuarioSessao($aUsuarioSessao): void
+    public function setAUsuarioSessao($aUsuarioSessao)
     {
         $this->aUsuarioSessao = $aUsuarioSessao;
     }

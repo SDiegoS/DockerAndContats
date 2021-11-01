@@ -23,7 +23,7 @@ class ModelCliente{
     /**
      * @param mixed $nome
      */
-    public function setNome($nome): void
+    public function setNome($nome)
     {
         $this->nome = $nome;
     }
@@ -39,7 +39,7 @@ class ModelCliente{
     /**
      * @param mixed $iTipoUsuario
      */
-    public function setITipoUsuario($iTipoUsuario): void
+    public function setITipoUsuario($iTipoUsuario)
     {
         $this->iTipoUsuario = $iTipoUsuario;
     }
@@ -55,7 +55,7 @@ class ModelCliente{
     /**
      * @param mixed $iCPFCNPJ
      */
-    public function setICPFCNPJ($iCPFCNPJ): void
+    public function setICPFCNPJ($iCPFCNPJ)
     {
         $this->iCPFCNPJ = $iCPFCNPJ;
     }
@@ -71,7 +71,7 @@ class ModelCliente{
     /**
      * @param mixed $iSenha
      */
-    public function setISenha($iSenha): void
+    public function setISenha($iSenha)
     {
         $this->iSenha = $iSenha;
     }

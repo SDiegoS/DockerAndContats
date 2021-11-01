@@ -19,7 +19,7 @@ class ModelContatos
     /**
      * @param mixed $iCodigo
      */
-    public function setICodigo($iCodigo): int
+    public function setICodigo($iCodigo)
     {
         $this->iCodigo = $iCodigo;
     }
@@ -35,7 +35,7 @@ class ModelContatos
     /**
      * @param mixed $sEmail
      */
-    public function setSEmail($sEmail): string
+    public function setSEmail($sEmail)
     {
         $this->sEmail = $sEmail;
     }
@@ -51,7 +51,7 @@ class ModelContatos
     /**
      * @param mixed $iTelefone
      */
-    public function setITelefone($iTelefone): int
+    public function setITelefone($iTelefone)
     {
         $this->iTelefone = $iTelefone;
     }
@@ -67,7 +67,7 @@ class ModelContatos
     /**
      * @param mixed $iTipoContato
      */
-    public function setITipoContato($iTipoContato): int
+    public function setITipoContato($iTipoContato)
     {
         $this->iTipoContato = $iTipoContato;
     }
@@ -83,7 +83,7 @@ class ModelContatos
     /**
      * @param mixed $iCodigoUsuario
      */
-    public function setICodigoUsuario($iCodigoUsuario): void
+    public function setICodigoUsuario($iCodigoUsuario)
     {
         $this->iCodigoUsuario = $iCodigoUsuario;
     }

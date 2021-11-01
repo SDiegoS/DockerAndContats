@@ -19,7 +19,7 @@ class PersistenciaContatos extends Persistencia
     /**
      * @var ModelContatos
      */
-    protected $ModelContato;
+    protected $ModelContatos;
 
     public function lista()
     {
@@ -32,15 +32,59 @@ class PersistenciaContatos extends Persistencia
             $oContato->setICodigo($aRes['concodigo']);
             $oContato->setSEmail($aRes['conemail']);
             $oContato->setITelefone($aRes['contelefone']);
-            if ($aRes['contipo'] == 1) {
-                $oContato->setITipoContato('Email');
-            } else if ($aRes['contipo'] == 2) {
-                $oContato->setITipoContato('Cliente');
-            }
+            $oContato->setITipoContato($aRes['contipo']);
 
             $aResultado[] = $oContato;
         }
         return $aResultado;
+    }
+
+    public function listaCodigo($codigo)
+    {
+        $oRetorno = $this->executa('SELECT * FROM tbcontato '
+            . 'WHERE concodigo=' . $codigo);
+        $aResultado = [];
+
+        while ($aRes = pg_fetch_array($oRetorno, NULL, PGSQL_ASSOC)) {
+            $oContato = new ModelContatos();
+            $oContato->setICodigo($aRes['concodigo']);
+            $oContato->setSEmail($aRes['conemail']);
+            $oContato->setITelefone($aRes['contelefone']);
+            $oContato->setITipoContato($aRes['contipo']);
+
+            $aResultado[] = $oContato;
+        }
+        return $aResultado;
+    }
+
+    public function inserir()
+    {
+        $exesql = $this->executa("insert into tbcontato (conemail, contelefone, contipo, usucodigo) 
+                                values ('" . $this->ModelContatos->getSEmail() . "', "
+            . $this->ModelContatos->getITelefone() . ", "
+            . $this->ModelContatos->getITipoContato() . ", "
+            . $this->ModelContatos->getICodigoUsuario() . ");");
+
+        echo"<script  type='text/javascript'>console.log(". $exesql .");</script>";
+        if ($exesql) {
+            echo"<script  type='text/javascript'>alert('Cadastrado com Sucesso!');</script>";
+        } else {
+            echo"<script  type='text/javascript'>alert('Erro no Cadastrado!');</script>";
+        }
+    }
+
+    public function altera()
+    {
+        $this->executa("update tbcontato set conemail = '" . $this->ModelContatos->getSEmail() . "',"
+            . " contelefone = " . $this->ModelContatos->getITelefone() . ","
+            . " contipo = " . $this->ModelContatos->getITipoContato()
+            . " where concodigo = " . $this->ModelContatos->getICodigo());
+    }
+
+    public function exclui()
+    {
+        //delete from tbcontato;
+        $this->executa("delete from tbcontato where concodigo = " . $this->ModelContatos->getICodigo());
     }
 
     //Getter e Setter
@@ -48,16 +92,16 @@ class PersistenciaContatos extends Persistencia
     /**
      * @return mixed
      */
-    public function getModelContato()
+    public function getModelContatos()
     {
-        return $this->ModelContato;
+        return $this->ModelContatos;
     }
 
     /**
      * @param mixed $ModelContato
      */
-    public function setModelContato($ModelContato): void
+    public function setModelContato($ModelContatos): void
     {
-        $this->ModelContato = $ModelContato;
+        $this->ModelContatos = $ModelContatos;
     }
 }

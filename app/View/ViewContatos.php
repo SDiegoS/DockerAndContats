@@ -24,7 +24,6 @@ class ViewContatos
     {
         ?>
         <body>
-        <script  type='text/javascript'>$('body').css('background-color', sessionStorage.getItem('background_php_color'));</script>
         <nav>
             <div>
                 <form method="POST" action="index.php?pagina=contatos">
@@ -44,7 +43,14 @@ class ViewContatos
                                 <td><?php echo $oContatos->getICodigo(); ?> </td>
                                 <td><?php echo $oContatos->getSEmail(); ?> </td>
                                 <td><?php echo $oContatos->getITelefone(); ?> </td>
-                                <td><?php echo $oContatos->getITipoContato(); ?> </td>
+                                <td><?php
+                                    if ($oContatos->getITipoContato() == 1) {
+                                        echo 'Administrador';
+                                    } else if ($oContatos->getITipoContato() == 2) {
+                                        echo 'Cliente';
+                                    }
+                                    ?>
+                                </td>
                                 <td>
                                     <button type="submit" name="alterar"
                                             value="<?php echo $oContatos->getICodigo(); ?>">
@@ -60,6 +66,9 @@ class ViewContatos
                             ?>
                         </table>
                     </div>
+                    <div>
+                        <button type="submit" name="adicionar" value="adicionar">Adicionar Contato</button>
+                    </div>
                 </form>
             </div>
         </nav>
@@ -71,7 +80,6 @@ class ViewContatos
     {
         ?>
         <body>
-        <script  type='text/javascript'>$('body').css('background-color', sessionStorage.getItem('background_php_color'));</script>
         <nav>
             <div style="margin-left: 400px">
                 <form method="POST" action="index.php?pagina=contatos">
@@ -85,7 +93,6 @@ class ViewContatos
                                     <td>Código</td>
                                     <td><input type="hidden" value="<?php echo $oContatos->getICodigo(); ?>"
                                                name="concodigo"> <?php echo $oContatos->getICodigo(); ?> </td>
-                                    <input type="hidden" value="<?php echo $oContatos->getICodigoUsuario(); ?>" name="usucodigo">
                                 </tr>
                                 <tr>
                                     <td>Email</td>
@@ -100,8 +107,12 @@ class ViewContatos
                                 </tr>
                                 <tr>
                                     <td>Tipo Contato</td>
-                                    <td><input type="text" value="<?php echo $oContatos->getITipoContato(); ?>"
-                                               name="contipo"></td>
+                                    <td>
+                                        <select name="contipo" value="<?php echo $oContatos->getITipoContato(); ?>">
+                                            <option value="1">Email</option>
+                                            <option value="2">Telefone</option>
+                                        </select>
+                                    </td>
                                 </tr>
                                 </tr>
                                 <tr>
@@ -115,6 +126,50 @@ class ViewContatos
                                 <?php
                             }
                             ?>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </nav>
+        </body>
+        <?php
+    }
+
+    function montaCadastro()
+    {
+        ?>
+        <body>
+        <nav>
+            <div style="margin-left: 400px">
+                <form method="POST" action="index.php?pagina=contatos">
+                    <h1 style="margin-bottom: 10px">Contatos</h1>
+                    <div>
+                        <table style="border: 1px">
+                            <tr>
+                                <td>Email</td>
+                                <td><input type="text" name="conemail">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Telefone</td>
+                                <td><input type="text" name="contelefone"></td>
+                            </tr>
+                            <tr>
+                                <td>Tipo Contato</td>
+                                <td>
+                                    <select name="contipo">
+                                        <option value="1">Email</option>
+                                        <option value="2">Telefone</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <td>Ação</td>
+                                <td>
+                                    <button type="submit" name="adicionar" value="confirmaAdicionar">Adicionar</button>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 </form>

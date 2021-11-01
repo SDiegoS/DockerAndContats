@@ -1,6 +1,7 @@
 <?php
 echo'
 <div id = "menu">
+<script  type="text/javascript">$("body").css("background-color", sessionStorage.getItem("background_php_color"));</script>
 <nav id="menu">
     <div>
         <ul>

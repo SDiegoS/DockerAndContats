@@ -7,13 +7,16 @@
  */
 require_once './app/View/ViewHome.php';
 
-class ControllerHome {
+class ControllerHome
+{
 
-    function __construct() {
+    function __construct()
+    {
         $this->processar();
     }
 
-    function processar() {
+    function processar()
+    {
         new ViewHome();
     }
 
